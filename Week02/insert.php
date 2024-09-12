@@ -20,14 +20,25 @@
         <input type="radio" name="serial" value="0">Tidak<br>
         <label for="">Genre</label>
         <select name="genre">
-            <option value="Action">Action</option>
-            <option value="Animation">Animation</option>
-            <option value="Drama">Drama</option>
+            <?php 
+            $mysqli = new mysqli('127.0.0.1', 'root', 'passwordlocal', 'fsp_e');
+
+            $sql = "SELECT * FROM genre";
+            $stmt = $mysqli->prepare($sql);
+            $stmt -> execute();
+
+            while ($row = $result -> fetch_assoc()) {
+                $id = $row['id'];
+                $nama = $row['nama'];
+
+                echo "<input type='checkbox' name='genre[]' value='$id>$nama";
+            }
+            ?>
         </select><br>
         <label>GAMBAR</label>
         <input type="file" name="gambar" accept="images/*">
         <input type="submit" value="SUBMIT">
     </form>
-    <a href="index.php">Back to Home</a>
+    <a href="/Week02/">Back to Home</a>
 </body>
 </html>

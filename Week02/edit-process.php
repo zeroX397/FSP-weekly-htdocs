@@ -13,13 +13,10 @@ $skor = $_POST['skor'];
 $sinopsis = $_POST['sinopsis'];
 $serial = $_POST['serial'];
 $genre = $_POST['genre'];
-$gambar = $_FILES['gambar'];
-$ext = pathinfo($gambar['name'], PATHINFO_EXTENSION);
-
 // continue for other variables
-$query = "INSERT INTO movie (judul, rilis, skor, sinopsis, serial, extension, genre) 	VALUES (?, ?, ?, ?, ?, ?, ?)";
+$query = "UPDATE movie SET judul=?, rilis=?, skor=?, sinopsis=?, serial=?, genre=? WHERE $idmovie=\"?\"";
 $stmt = $mysqli->prepare($query);
-$stmt->bind_param('ssdsiss', $judul, $rilis, $skor, $sinopsis, $serial, $ext, $genre);
+$stmt->bind_param('ssdsisi', $judul, $rilis, $skor, $sinopsis, $serial, $genre, $idmovie);
 // ‘'ssdsis'’ is the variable type 
 
 /* execute prepared statement */
@@ -28,10 +25,6 @@ $stmt->execute();
 if ($stmt) {
     echo "Insert success.";
     echo "ID Movie " + $stmt->$insert_id;
-    $new_id = $stmt->insert_id;
-    $dst = "gambar/$new_id.$ext";
-    move_uploaded_file($gambar['tmp_name'], $dst);
-
 } else {
     echo "Insert failed.";
 }

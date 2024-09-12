@@ -56,7 +56,7 @@
 
     $mysqli->close(); /* close connection */
     ?>
-    <a href="/Week01/insert.php">Insert new movie</a>
+    <a href="/Week02/insert.php">Insert new movie</a>
 </body>
 
 </html>
