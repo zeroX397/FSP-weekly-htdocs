@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSP Week 01</title>
+    <title>FSP Week 03</title>
 </head>
 
 <body>
@@ -49,14 +49,14 @@
 
         echo "<td><img src='gambar/$id.$ext' width=50 height=50></td>";
         // Added Edit link with movie ID
-        echo "<td><a href='/Week01/edit.php?id=" . urlencode($row['id']) . "'>Edit</a></td>";
+        echo "<td><a href='/Week03/edit.php?id=" . urlencode($row['id']) . "'>Edit</a></td>";
         echo "</tr>";
     }
     echo "</table>";
 
     $mysqli->close(); /* close connection */
     ?>
-    <a href="/Week02/insert.php">Insert new movie</a>
+    <a href="/Week03/insert.php">Insert new movie</a>
 </body>
 
 </html>

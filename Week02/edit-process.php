@@ -14,9 +14,9 @@ $sinopsis = $_POST['sinopsis'];
 $serial = $_POST['serial'];
 $genre = $_POST['genre'];
 // continue for other variables
-$query = "UPDATE movie SET judul=?, rilis=?, skor=?, sinopsis=?, serial=?, genre=? WHERE $idmovie=\"?\"";
+$query = "UPDATE movie SET judul=?, rilis=?, skor=?, sinopsis=?, serial=?, genre=? WHERE $id=\"?\"";
 $stmt = $mysqli->prepare($query);
-$stmt->bind_param('ssdsisi', $judul, $rilis, $skor, $sinopsis, $serial, $genre, $idmovie);
+$stmt->bind_param('ssdsisi', $judul, $rilis, $skor, $sinopsis, $serial, $genre, $id);
 // ‘'ssdsis'’ is the variable type 
 
 /* execute prepared statement */

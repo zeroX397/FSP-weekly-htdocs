@@ -15,7 +15,7 @@ if (!$id_movie) {
     die("Movie ID is missing.");
 }
 
-$sql = "SELECT * FROM movie WHERE idmovie = ?";
+$sql = "SELECT * FROM movie WHERE id = ?";
 $stmt = $mysqli->prepare($sql);
 
 if (!$stmt) {
@@ -79,7 +79,7 @@ $mysqli->close();
             <option value="Drama" <?= $genre == "Drama" ? "selected" : "" ?>>Drama</option>
         </select>
 
-        <input type="hidden" name="idmovie" value="<?= $id_movie ?>">
+        <input type="hidden" name="id" value="<?= $id_movie ?>">
         <input type="submit" value="SUBMIT">
     </form>
     <a href="index.php">Back to Home</a>

@@ -34,7 +34,7 @@
     </tr>";
     while ($row = $res->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['idmovie']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
         echo "<td>" . htmlspecialchars($row['judul']) . "</td>";
         $rilis = date("d-m-Y", strtotime($row['rilis']));
         echo "<td>" . htmlspecialchars($rilis) . "</td>";
@@ -44,12 +44,12 @@
         echo "<td>" . htmlspecialchars($serial) . "</td>";
         echo "<td>" . htmlspecialchars($row['genre']) . "</td>";
 
-        $idmovie = $row['idmovie'];
+        $id = $row['id'];
         $ext = $row['extension'];
 
-        echo "<td><img src='gambar/$idmovie.$ext' width=50 height=50></td>";
+        echo "<td><img src='gambar/$id.$ext' width=50 height=50></td>";
         // Added Edit link with movie ID
-        echo "<td><a href='/Week01/edit.php?id=" . urlencode($row['idmovie']) . "'>Edit</a></td>";
+        echo "<td><a href='/Week01/edit.php?id=" . urlencode($row['id']) . "'>Edit</a></td>";
         echo "</tr>";
     }
     echo "</table>";
